@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { MessageCircle, ShoppingCart, Info, AlertCircle, CheckCircle } from 'lucide-react';
+import { MessageCircle, ShoppingCart, Info, AlertCircle, CheckCircle, CreditCard } from 'lucide-react';
 import { BoardConfiguration } from '@/types/boards';
 import { useCart } from '@/components/cart/CartContext';
 import { calculateBoardItemPrice, formatPrice } from '@/lib/pricing';
 import { boardTypes, materialOptions, colorOptions, edgeBandingOptions } from '@/data/boardsData';
+import { generateGrowProductLink, formatGrowAmount } from '@/lib/growPayment';
 
 interface OrderSummaryActionsProps {
   config: BoardConfiguration;
@@ -152,6 +153,37 @@ export default function OrderSummaryActions({ config }: OrderSummaryActionsProps
     window.open('https://wa.me/972525090556', '_blank');
   };
 
+  /**
+   * Generate Buy Now payment link
+   */
+  const getBuyNowLink = () => {
+    if (!validateConfiguration()) {
+      return null;
+    }
+
+    const priceData = calculatePrice();
+    if (!priceData) return null;
+
+    // Generate product description
+    const productName = 'לוח מותאם אישית';
+    const specs = [
+      `${config.width}x${config.length} ס"מ`,
+      getBoardTypeName(config.boardTypeId),
+      getMaterialName(config.materialId),
+      getColorName(config.colorId),
+      getEdgeBandingName(config.edgeBandingId),
+    ].filter(Boolean).join(' | ');
+
+    const productId = `BOARD-${config.boardTypeId}-${Date.now()}`;
+
+    return generateGrowProductLink(
+      productId,
+      formatGrowAmount(priceData.unitPrice),
+      productName,
+      specs
+    );
+  };
+
   // Calculate current price for display
   const currentPrice = calculatePrice();
 
@@ -224,25 +256,58 @@ export default function OrderSummaryActions({ config }: OrderSummaryActionsProps
       </div>
 
       {/* Action Buttons */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="space-y-4 mb-6">
+        {/* WhatsApp Consultation */}
         <button
           onClick={handleWhatsApp}
-          className="flex items-center justify-center gap-3 px-6 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-all shadow-md hover:shadow-xl"
+          className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-all shadow-md hover:shadow-xl"
           aria-label="קבעו ייעוץ בווטסאפ"
         >
           <MessageCircle className="w-5 h-5" />
           קבע/י ייעוץ ב-WhatsApp
         </button>
 
-        <button
-          onClick={handleAddToCart}
-          className="flex items-center justify-center gap-3 px-6 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg transition-all shadow-md hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={!currentPrice}
-          aria-label="הוסיפו לסל קניות"
-        >
-          <ShoppingCart className="w-5 h-5" />
-          הוסף/י לסל
-        </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Add to Cart */}
+          <button
+            onClick={handleAddToCart}
+            className="flex items-center justify-center gap-3 px-6 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg transition-all shadow-md hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={!currentPrice}
+            aria-label="הוסיפו לסל קניות"
+          >
+            <ShoppingCart className="w-5 h-5" />
+            הוסף/י לסל
+          </button>
+
+          {/* Buy Now with Grow Payment */}
+          {currentPrice && getBuyNowLink() ? (
+            <a
+              href={getBuyNowLink()!}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-accent-600 to-accent-700 hover:from-accent-700 hover:to-accent-800 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              aria-label="קנייה מהירה"
+            >
+              <CreditCard className="w-5 h-5" />
+              קנה/י עכשיו
+            </a>
+          ) : (
+            <button
+              disabled
+              className="flex items-center justify-center gap-3 px-6 py-4 bg-gray-400 cursor-not-allowed text-white font-bold rounded-lg"
+            >
+              <CreditCard className="w-5 h-5" />
+              קנה/י עכשיו
+            </button>
+          )}
+        </div>
+
+        {/* Payment Methods Info */}
+        <div className="text-center">
+          <p className="text-xs text-gray-600 bg-white rounded-lg py-2 px-4">
+            💳 אשראי | 📱 Bit | 🍎 Apple Pay | 🔒 תשלום מאובטח דרך Grow
+          </p>
+        </div>
       </div>
 
       {/* Additional Info */}

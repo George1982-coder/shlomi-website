@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, CreditCard } from 'lucide-react';
 import { useCart } from './CartContext';
 import { formatPrice } from '@/lib/pricing';
 import { formatConfigurationSummary } from '@/lib/cartUtils';
+import { generateGrowCheckoutLink, formatGrowAmount, isValidPaymentAmount } from '@/lib/growPayment';
 
 export default function CartPageContent() {
   const { items, totals, removeItem, updateQuantity, clearCart } = useCart();
@@ -198,20 +199,36 @@ export default function CartPageContent() {
                 </span>
               </div>
 
-              {/* Checkout Button */}
-              <button
-                disabled
-                className="w-full px-6 py-4 bg-accent-600 hover:bg-accent-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold rounded-lg transition-all shadow-md hover:shadow-lg mb-4"
-                aria-label="להמשך לתשלום"
-              >
-                להמשך לתשלום
-                <span className="block text-xs font-normal mt-1">(בקרוב)</span>
-              </button>
+              {/* Checkout Button with Grow Payment */}
+              {isValidPaymentAmount(totals.subtotal) ? (
+                <a
+                  href={generateGrowCheckoutLink(items, formatGrowAmount(totals.subtotal))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full px-6 py-4 bg-gradient-to-r from-accent-600 to-accent-700 hover:from-accent-700 hover:to-accent-800 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center group"
+                  aria-label="להמשך לתשלום מאובטח"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <CreditCard className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    <span>המשך לתשלום מאובטח</span>
+                  </div>
+                  <div className="text-xs font-normal mt-2 opacity-90">
+                    💳 אשראי | 📱 Bit | 🍎 Apple Pay | 🔒 Grow Payment
+                  </div>
+                </a>
+              ) : (
+                <button
+                  disabled
+                  className="w-full px-6 py-4 bg-gray-400 cursor-not-allowed text-white font-bold rounded-lg mb-4"
+                >
+                  סכום לא תקין לתשלום
+                </button>
+              )}
 
               {/* Continue Shopping */}
               <Link
                 href="/"
-                className="block w-full px-6 py-3 text-center border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold rounded-lg transition-all"
+                className="block w-full px-6 py-3 text-center border-2 border-primary-600 text-primary-600 hover:bg-primary-50 font-bold rounded-lg transition-all mt-4"
               >
                 המשך בקנייה
               </Link>

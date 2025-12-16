@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export default function Hero() {
@@ -14,7 +15,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/background.mp4" type="video/mp4" />
         </video>
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/50 to-black/30"></div>
@@ -29,17 +30,23 @@ export default function Hero() {
             {' '}במיוחד בשבילך
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            מעצבים ומייצרים רהיטים איכוtiים לבית ולעסק. מדפים מותאמים, ארונות בהזמנה אישית, 
+            מעצבים ומייצרים רהיטים איכותיים לבית ולעסק. מדפים מותאמים, ארונות בהזמנה אישית, 
             פתרונות אחסון חכמים ושולחנות מעוצבים - הכל בדיוק לפי המידות והצרכים שלך.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <button className="btn-accent flex items-center gap-2 group">
+            <Link
+              href="/boards/custom-cut"
+              className="btn-accent flex items-center gap-2 group"
+            >
               למידע נוסף והזמנה
               <ArrowLeft className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="btn-outline bg-white/10 backdrop-blur-sm border-white hover:bg-white hover:text-primary-600">
+            </Link>
+            <Link
+              href="/gallery"
+              className="bg-white text-primary-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            >
               גלריית עבודות
-            </button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
