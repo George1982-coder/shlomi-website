@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const footerData = {
@@ -140,23 +141,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="border-t border-gray-800 pt-8 mb-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4">הישארו מעודכנים</h3>
-            <p className="text-gray-400 mb-6">
-              הצטרפו לרשימת התפוצה שלנו וקבלו עדכונים על מבצעים, חידושים וטיפים מועילים
-            </p>
-            <div className="flex gap-2 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="כתובת אימייל"
-                className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-primary-500 focus:outline-none text-white"
-              />
-              <button className="btn-accent px-8">הרשמה</button>
-            </div>
-          </div>
-        </div>
+          
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
@@ -164,17 +149,17 @@ export default function Footer() {
             כל הזכויות שמורות לנגריית האינטרנט © {new Date().getFullYear()}
           </p>
           <div className="flex justify-center gap-6 text-sm">
-            <a href="#" className="hover:text-primary-400 transition-colors">
+            <Link href="/terms" className="hover:text-primary-400 transition-colors">
               תנאי שימוש
-            </a>
+            </Link>
             <span>|</span>
-            <a href="#" className="hover:text-primary-400 transition-colors">
+            <Link href="/privacy" className="hover:text-primary-400 transition-colors">
               מדיניות פרטיות
-            </a>
+            </Link>
             <span>|</span>
-            <a href="#" className="hover:text-primary-400 transition-colors">
+            <Link href="/accessibility" className="hover:text-primary-400 transition-colors">
               הצהרת נגישות
-            </a>
+            </Link>
           </div>
         </div>
       </div>

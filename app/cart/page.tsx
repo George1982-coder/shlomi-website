@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
 import CartPageContent from '@/components/cart/CartPageContent';
 
 export const metadata: Metadata = {
@@ -17,7 +16,6 @@ export default function CartPage() {
       <CartPageContent />
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
     </main>
   );
 }

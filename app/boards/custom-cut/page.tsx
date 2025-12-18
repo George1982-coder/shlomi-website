@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
+
 import CustomCutPage from '@/components/boards/CustomCutPage';
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function CustomCutBoardPage() {
       <CustomCutPage />
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
+     
     </main>
   );
 }

@@ -42,8 +42,7 @@ yarn dev
 │   ├── CategoriesGrid.tsx  # רשת קטגוריות (4 עמודות)
 │   ├── ProductShowcase.tsx # תצוגת מוצרים
 │   ├── Footer.tsx          # כותרת תחתונה
-│   ├── FloatingWhatsApp.tsx    # כפתור WhatsApp צף
-│   └── AccessibilityButton.tsx # כפתור נגישות
+│   └── FloatingWhatsApp.tsx    # כפתור WhatsApp צף
 ├── public/
 │   ├── videos/             # וידאו רקע
 │   └── images/             # תמונות
@@ -63,7 +62,7 @@ yarn dev
 - ✅ Header sticky עם mega menu
 - ✅ Hero עם וידאו רקע
 - ✅ אנימציות חלקות
-- ✅ כפתורי צף WhatsApp ונגישות
+- ✅ כפתור צף WhatsApp
 - ✅ Footer מפורט עם 4 עמודות
 - ✅ אופטימיזציה למהירות
 

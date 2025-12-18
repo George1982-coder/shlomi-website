@@ -14,18 +14,18 @@ const products: Product[] = [
   {
     title: 'לוחות עץ מותאמים אישית',
     description: 'לוחות MDF וסנדוויץ\' איכותיים בחיתוך מדויק. מתאימים לכל פרויקט בית או עסק, זמינים במגוון גדלים וצבעים. ניתנים לחיתוך מדויק לפי המידות שלך.',
-    image: 'https://images.unsplash.com/photo-1551268831-41c72c8cb0a3?w=800',
+    image: '/our-experts-images/1.png',
   },
   {
     title: 'מדפים מעוצבים לפי מידה',
     description: 'מדפי עץ מלא ו-MDF מעוצבים, מחוזקים ומהודרים. זמינים במגוון צבעים ועיבויים, עם אפשרות להתאמה מושלמת למרחב שלך ולסגנון העיצוב הרצוי.',
-    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
+    image: '/our-experts-images/3.png',
     featured: true,
   },
   {
     title: 'שידות וארגזי אחסון מעוצבים',
     description: 'שידות מעוצבות לארון קיים או חדש. זמינות במגוון מידות וגוונים, מושלמות לארגון חלל עבודה, חדר שינה או כל חלל אחר. איכות פרימיום וביצוע מדויק.',
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800',
+    image: '/our-experts-images/2.png',
   },
 ];
 

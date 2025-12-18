@@ -5,7 +5,7 @@ import CategoriesGrid from '@/components/CategoriesGrid';
 import ProductShowcase from '@/components/ProductShowcase';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
+
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <ProductShowcase />
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
+     
     </main>
   );
 }

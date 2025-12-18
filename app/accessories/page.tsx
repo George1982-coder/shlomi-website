@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
+
 
 export const metadata = {
   title: 'אביזרים ואלמנטים | נגריית האינטרנט',
@@ -26,7 +26,7 @@ export default function AccessoriesPage() {
       </div>
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
+     
     </main>
   );
 }

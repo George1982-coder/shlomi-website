@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body>
         <CartProvider>{children}</CartProvider>
+        <script src="https://cdn.userway.org/widget.js" data-account="TTAjoriQmo"/>
       </body>
     </html>
   );

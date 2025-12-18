@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
 
 export const metadata = {
   title: 'מדפים בהתאמה אישית | נגריית האינטרנט',
@@ -26,7 +25,6 @@ export default function ShelvesCustomPage() {
       </div>
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
     </main>
   );
 }

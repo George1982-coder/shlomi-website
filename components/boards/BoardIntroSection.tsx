@@ -5,15 +5,15 @@ import Image from 'next/image';
 import { Check } from 'lucide-react';
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800',
-  'https://images.unsplash.com/photo-1551268831-41c72c8cb0a3?w=800',
-  'https://images.unsplash.com/photo-1609743522471-83c84ce23e32?w=800',
-  'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800',
-  'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800',
-  'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800',
-  'https://images.unsplash.com/photo-1548610325-afe8f6146ed3?w=800',
-  'https://images.unsplash.com/photo-1551268831-41c72c8cb0a3?w=800',
-  'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800',
+  '/Panels/image1.png',
+  '/Panels/image2.png',
+  '/Panels/image3.png',
+  '/Panels/image4.png',
+  '/Panels/image5.png',
+  '/Panels/image6.png',
+  '/Panels/image7.png',
+  '/Panels/image8.png',
+  '/Panels/image9.png',
 ];
 
 export default function BoardIntroSection() {

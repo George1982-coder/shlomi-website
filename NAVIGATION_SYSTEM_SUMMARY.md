@@ -164,7 +164,6 @@ All placeholder pages follow the same structure:
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import AccessibilityButton from '@/components/AccessibilityButton';
 
 export const metadata = {
   title: 'Page Title | נגריית האינטרנט',
@@ -190,7 +189,6 @@ export default function PageName() {
       </div>
       <Footer />
       <FloatingWhatsApp />
-      <AccessibilityButton />
     </main>
   );
 }

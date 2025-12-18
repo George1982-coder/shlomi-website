@@ -35,6 +35,10 @@ export interface RelatedProduct {
   name: string;
   description: string[];
   image: string;
+  route: string;
+  priceFrom: number;  // "Starting from" price
+  priceType: 'configurable' | 'fixed';  // Does it need configuration?
+  standardSpecs?: string;  // What the base price includes
 }
 
 export interface BoardConfiguration {
